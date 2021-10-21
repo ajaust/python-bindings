@@ -21,11 +21,10 @@ jobs:
     steps:
       - name: Force install latest Git
         run: |
-          apt-get install -y \
-          && apt-get update \
-          && add-apt-repository -y ppa:git-core/ppa \
-          && apt-get update \
-          && apt-get install -y git
+          add-apt-repository ppa:git-core/ppa -y \
+          apt-get update \
+          apt-get install git -y \
+          git --version
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Move Package Script
