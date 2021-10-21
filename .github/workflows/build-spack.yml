@@ -21,6 +21,7 @@ jobs:
     steps:
       - name: Force install latest Git
         run: |
+          apt-get install software-properties-common -y \
           add-apt-repository ppa:git-core/ppa -y \
           apt-get update \
           apt-get install git -y \
