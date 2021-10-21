@@ -19,6 +19,13 @@ jobs:
       run:
         shell: "bash --login -eo pipefail {0}"
     steps:
+      - name: Force install latest Git
+        run: |
+          apt-get install -y software-properties-common \
+          && apt-get update \
+          && add-apt-repository -y ppa:git-core/ppa \
+          && apt-get update \
+          && apt-get install -y git
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Move Package Script
