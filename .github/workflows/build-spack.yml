@@ -24,7 +24,9 @@ jobs:
           apt-get update && apt-get install software-properties-common -y && add-apt-repository ppa:git-core/ppa -y && apt-get update && apt-get install git -y && git --version
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Move Package Script
+        with:
+          fetch-depth: 0
+          - name: Move Package Script
         run: |
           cp -r spack/repo/packages/py-pyprecice/ /py-pyprecice-repo/packages/
       - name: Try to build py-pyprecice with spack and test it
